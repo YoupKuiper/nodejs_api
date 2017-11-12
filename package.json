@@ -1,0 +1,25 @@
+{
+  "name": "zvh_api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/YoupKuiper/nodejs_api.git"
+  },
+  "author": "youp",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/YoupKuiper/nodejs_api/issues"
+  },
+  "homepage": "https://github.com/YoupKuiper/nodejs_api#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "mongodb": "^2.2.33",
+    "nvm": "0.0.4"
+  }
+}
