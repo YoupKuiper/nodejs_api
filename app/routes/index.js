@@ -1,24 +1,18 @@
+const consultantRoutes = require('./consultants');
+const healthIssueRoutes = require('./health-issues');
+const measurementRoutes = require('./measurements');
+const messageRoutes = require('./messages');
+const settingsRoutes = require('./settings');
+const userRoutes = require('./users');
+
+
 module.exports = function(app, db) {
 
-    app.get('/consultants', (req, res) => {
-        db.collection('consultants').find().toArray(function (mongoError, results) {
-            if(mongoError){
-                res.send(mongoError);
-            }else{
-                res.send(results);
-            }
-    })
-    });
-
-    app.post('/consultants', (req, res) => {
-        const consultant = { firstname: req.body.firstname, lastname: req.body.lastname, emailAddress: req.body.emailAddress}
-        db.collection('consultants').insert(consultant, (error, result) => {
-            if (error) {
-                res.send({ 'error': 'An error has occurred' });
-            } else {
-                res.send(result.ok);
-            }
-            })
-    })
+    consultantRoutes(app, db);
+    healthIssueRoutes(app, db);
+    measurementRoutes(app, db);
+    messageRoutes(app, db);
+    settingsRoutes(app, db);
+    userRoutes(app, db);
 
 };
