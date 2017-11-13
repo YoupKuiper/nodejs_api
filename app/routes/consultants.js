@@ -13,7 +13,6 @@ module.exports = function(app, db){
     });
 
     app.post('/consultants', (req, res) => {
-        console.log("asd");
         const consultant = { firstname: req.body.firstname, lastname: req.body.lastname, emailAddress: req.body.emailAddress};
 
     db.collection('consultants').insert(consultant, (err, result) => {
