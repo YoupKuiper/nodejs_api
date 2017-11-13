@@ -1,3 +1,6 @@
+const dbUser = process.env.DB_USERNAME;
+const dbPassword = process.env.DB_PASSWORD;
+
 module.exports = {
-    url : "mongodb://root:inholland123@ds151024.mlab.com:51024/zorgvoorjehart"
+    url : "mongodb://" + dbUser + ":" + dbPassword + "@ds151024.mlab.com:51024/zorgvoorjehart"
 };

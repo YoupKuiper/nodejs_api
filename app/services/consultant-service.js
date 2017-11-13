@@ -1,8 +1,14 @@
 const consultantProvider = require('../dataproviders/consultant-provider');
 
-var exports = module.exports = {
+module.exports = {
 
-   getAllConsultants: function (db) {
-    console.log("asd")
+   getAllConsultants: function (db, callback) {
+        consultantProvider.getAllConsultants(db, (error, consultants) => {
+            if(error){
+                callback(error);
+            }else{
+                callback(null, consultants);
+            }
+        })
     }
-}
+};

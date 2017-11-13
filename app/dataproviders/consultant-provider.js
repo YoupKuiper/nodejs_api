@@ -1,5 +1,12 @@
-var exports = module.exports ={};
+module.exports = {
 
-exports.getAllConsultants = function () {
-
-}
+    getAllConsultants: function (db, callback) {
+        db.collection('consultants').find().toArray((error, consultants) => {
+            if(error){
+                callback(error);
+            }else{
+                callback(consultants);
+            }
+        })
+    }
+};

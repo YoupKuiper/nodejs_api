@@ -3,13 +3,13 @@ const consultantService = require('../services/consultant-service');
 module.exports = function(app, db){
 
     app.get('/consultants', (req, res) => {
-        db.collection('consultants').find().toArray(function (mongoError, results) {
-            if(mongoError){
-                res.send(mongoError);
+        consultantService.getAllConsultants(db, (error, consultants) => {
+            if(error){
+                res.send(error);
             }else{
-                res.send(results);
+                res.send(consultants)
             }
-        })
+        });
     });
 
     app.post('/consultants', (req, res) => {
