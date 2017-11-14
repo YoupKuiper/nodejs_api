@@ -23,6 +23,7 @@
     "mongodb": "^2.2.33",
     "nvm": "0.0.4",
     "password-hash": "^1.2.2",
+    "rand-token": "^0.4.0",
     "sendmail": "^1.2.0"
   }
 }
