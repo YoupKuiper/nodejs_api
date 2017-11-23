@@ -1,4 +1,4 @@
-var ObjectId = require('mongodb').ObjectID;
+const ObjectId = require('mongodb').ObjectID;
 
 module.exports = {
     postMeasurement: function (db, measurement, callback) {
