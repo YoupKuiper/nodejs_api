@@ -6,7 +6,14 @@ const db             = require('./config/db');
 
 const port = process.env.PORT || 8000;
 
-app.use(bodyParser.urlencoded({ extended: true }));
+var options = {
+    inflate: true,
+    limit: '100kb',
+    strict: false,
+    type: '*/*'
+};
+
+app.use(bodyParser.json(options));
 
 MongoClient.connect(db.url, (err, database) => {
     if(err) return console.log(err);
