@@ -20,5 +20,17 @@ module.exports = {
                 callback(null, result);
             }
         })
+    },
+    
+    getSettings: function (db, userId, callback) {
+        userId = ObjectId(userId);
+
+        settingsProvider.getSettings(db, userId, (error, result) => {
+            if(error){
+                callback(error);
+            }else{
+                callback(null, result);
+            }
+        })
     }
 };

@@ -35,6 +35,7 @@ module.exports = {
             function (token, callback) {
                 if(user){
                     //Set activated to false, generate a password hash and the activation token
+                    user.consultantId = ObjectId(user.consultantId);
                     user.isActivated = false;
                     user.password = passwordHash.generate(user.password);
                     user.activationToken = token;
