@@ -4,9 +4,16 @@ const bodyParser     = require('body-parser');
 const app            = express();
 const db             = require('./config/db');
 
-const port = 8000;
+const port = process.env.PORT || 8000;
 
-app.use(bodyParser.urlencoded({ extended: true }));
+var options = {
+    inflate: true,
+    limit: '100kb',
+    strict: false,
+    type: '*/*'
+};
+
+app.use(bodyParser.json(options));
 
 MongoClient.connect(db.url, (err, database) => {
     if(err) return console.log(err);
@@ -16,4 +23,4 @@ MongoClient.connect(db.url, (err, database) => {
     app.listen(port, () => {
         console.log("We are live on port: " + port);
     })
-})
+});

@@ -1,8 +1,8 @@
 const measurementProvider = require('../dataproviders/measurement-provider');
 
 module.exports = {
-    postMeasurement: function (db, measurement, callback) {
-        measurementProvider.postMeasurement(db, measurement, (error, result) => {
+    postMeasurement: function (db, measurement, userId, callback) {
+        measurementProvider.postMeasurement(db, measurement, userId, (error, result) => {
             if (error) {
                 callback(error);
             } else {
