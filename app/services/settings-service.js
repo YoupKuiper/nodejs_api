@@ -1,8 +1,11 @@
 const settingsProvider = require('../dataproviders/settings-provider');
+const authorizationService = require('./authorization-service');
 const ObjectId = require('mongodb').ObjectID;
 
 module.exports = {
-    putSetting: function (db, setting, userId, callback) {
+    putSetting: function (db, setting, headers, callback) {
+
+        //Waarschijnlijk gaan we deze niet meer gebruiken en gaan we alles lokaal opslaan op de device
         userId = ObjectId(userId);
 
         //Convert string "true" or "false" to boolean

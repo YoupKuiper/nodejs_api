@@ -19,6 +19,16 @@ module.exports = {
             }
         })
     },
+    
+    updateUser: function (db, userId, measurements, callback) {
+        db.collection('users').findOneAndUpdate({"_id": userId}, {$set: {length: measurements.length, weight: measurements.weight}}, {upsert: true}, (error, result) => {
+            if(error){
+                callback(error);
+            }else{
+                callback(null, result);
+            }
+        })
+    },
 
     getUserByEmailAddress: function (db, credentials, callback) {
         db.collection('users').findOne({"emailAddress": credentials.emailAddress}, (error, user) => {
@@ -36,6 +46,20 @@ module.exports = {
                 callback(error);
             }else{
                 callback(null, result.value);
+            }
+        })
+    },
+    
+    getUserByAuthToken: function (db, authtoken, callback) {
+        db.collection('users').findOne({"authToken": authtoken}, (error, user) => {
+            if(error){
+                callback(error);
+            }else{
+                if(user){
+                    callback(null, user);
+                }else{
+                    callback("Unauthorized");
+                }
             }
         })
     }

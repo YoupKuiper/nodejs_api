@@ -32,4 +32,14 @@ module.exports = function (app, db) {
             }
         })
     })
+
+    app.put('/Users', (req, res) => {
+        userService.updateUser(db, req.body, req.headers, (error, user) => {
+            if(error){
+                res.send(error);
+            }else{
+                res.send(user);
+            }
+        })
+    })
 };

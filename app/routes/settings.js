@@ -2,7 +2,7 @@ const settingsService = require('../services/settings-service');
 
 module.exports = function (app, db) {
     app.put('/Settings', (req, res) =>{
-        settingsService.putSetting(db, req.body, req.query.userId, (error, result) => {
+        settingsService.putSetting(db, req.body, req.headers, (error, result) => {
             if(error){
                 res.send(error);
             }else{

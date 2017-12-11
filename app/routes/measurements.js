@@ -3,7 +3,7 @@ const measurementService = require('../services/measurement-service');
 module.exports = function (app, db) {
 
     app.post('/Measurements', (req, res) => {
-        measurementService.postMeasurement(db, req.body, req.query.userId,  (error, result) => {
+        measurementService.postMeasurement(db, req.body, req.headers, (error, result) => {
             if(error){
                 res.send(error);
             }else{
@@ -13,7 +13,7 @@ module.exports = function (app, db) {
     });
 
     app.get('/Measurements', (req, res) => {
-        measurementService.getMeasurements(db, req.query.userId, (error, result) => {
+        measurementService.getMeasurements(db, req.headers, (error, result) => {
             if(error){
                 res.send(error);
             }else{
