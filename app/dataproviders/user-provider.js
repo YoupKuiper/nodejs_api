@@ -21,7 +21,7 @@ module.exports = {
     },
     
     updateUser: function (db, userId, measurements, callback) {
-        db.collection('users').findOneAndUpdate({"_id": userId}, {$set: {length: measurements.length, weight: measurements.weight}}, {upsert: true}, (error, result) => {
+        db.collection('users').findOneAndUpdate({"_id": userId}, {$set: {"length": measurements.length, "weight": measurements.weight}}, {upsert: true}, (error, result) => {
             if(error){
                 callback(error);
             }else{

@@ -8,10 +8,10 @@ module.exports = {
         async.waterfall([
             function (callback) {
                 authorizationService.validateAuthtoken(db, headers, (error, result) => {
-                    if(result){
-                        callback(null);
-                    }else{
+                    if(error){
                         callback(error);
+                    }else{
+                        callback(null);
                     }
                 })
             },
