@@ -1,5 +1,6 @@
 const userProvider = require('../dataproviders/user-provider');
 const authorizationService = require('./authorization-service');
+const ObjectId = require('mongodb').ObjectID;
 const async = require('async');
 const passwordHash = require('password-hash');
 const sendmail = require('sendmail')({
