@@ -13,7 +13,10 @@ module.exports = function (app, db) {
         })
     });
 
-    app.put('/Users/activate', (req, res) => {
+    app.get('/Users/activate', (req, res) => {
+        if(!req.query.token){
+            res.send("No token supplied!")
+        }else{
         userService.activateUser(db, req.query.token, (error, user) => {
             if(error){
                 res.send(error);
@@ -21,6 +24,7 @@ module.exports = function (app, db) {
                 res.send(user);
             }
         })
+    }
     });
 
     app.post('/Users/login', (req,res) => {
