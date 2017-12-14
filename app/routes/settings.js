@@ -10,7 +10,7 @@ module.exports = function (app, db) {
                 res.send(settings);
             }
         })
-    })
+    });
 
     app.get('/Settings', (req, res) => {
         settingsService.getSettings(db, req.query.userId, (error, settings) => {

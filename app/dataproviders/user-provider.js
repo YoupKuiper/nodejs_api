@@ -41,7 +41,7 @@ module.exports = {
     },
 
     loginUser: function (db, user, callback) {
-        db.collection('users').findOneAndUpdate({"_id": user._id}, {$set: {authToken: user.authToken}}, null, (error, result) => {
+        db.collection('users').findOneAndUpdate({"_id": user._id}, {$set: {authToken: user.authToken}},{returnOriginal:false}, (error, result) => {
             if(error){
                 callback(error);
             }else{
