@@ -11,7 +11,7 @@ module.exports = {
     },
     
     activateUser: function (db, token, callback) {
-        db.collection('users').findOneAndUpdate({"activationToken": token}, {$set: {isActivated:true}}, null, (error, result) => {
+        db.collection('users').findOneAndUpdate({"activationToken": token}, {$set: {"isActivated":true}}, null, (error, result) => {
             if(error){
                 callback(error);
             }else{
