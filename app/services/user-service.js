@@ -1,4 +1,6 @@
 const userProvider = require('../dataproviders/user-provider');
+const authorizationService = require('./authorization-service');
+const ObjectId = require('mongodb').ObjectID;
 const async = require('async');
 const passwordHash = require('password-hash');
 const sendmail = require('sendmail')({
@@ -23,7 +25,7 @@ module.exports = {
                     from: 'info@zorgvoorhethart.nl',
                     to: user.emailAddress,
                     subject: 'Bedankt voor uw registratie',
-                    html: 'Beste ' + user.firstname + ", bedankt voor uw registratie. Klik op de volgende link om uw account te activeren: " + token,
+                    html: 'Beste ' + user.firstname + ", bedankt voor uw registratie. Klik op de volgende link om uw account te activeren: https://zvh-api.herokuapp.com/Users/activate?token=" + token,
                 }, function(err, reply) {
                     console.log(err && err.stack);
                     if(reply){
@@ -65,6 +67,36 @@ module.exports = {
                 callback(null, result);
             }
         })
+    },
+
+    updateUser: function (db, measurements, headers, callback) {
+        async.waterfall([
+            function (callback) {
+                authorizationService.validateAuthtoken(db, headers, (error, result) => {
+                    if(error){
+                        callback(error);
+                    }else{
+                        callback(null, result);
+                    }
+                })
+            },
+            function (user, callback) {
+                userProvider.updateUser(db, user._id, measurements, (error, result) => {
+                    if(error){
+                        callback(error);
+                    }else{
+                        callback(null, result);
+                    }
+                })
+            }
+        ], function (error, result) {
+            if(error){
+                callback(error);
+            }else{
+                callback(null, result);
+            }
+        })
+
     },
     
     loginUser: function (db, credentials, callback) {

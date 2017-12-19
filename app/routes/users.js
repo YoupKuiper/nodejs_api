@@ -13,7 +13,10 @@ module.exports = function (app, db) {
         })
     });
 
-    app.put('/Users/activate', (req, res) => {
+    app.get('/Users/activate', (req, res) => {
+        if(!req.query.token){
+            res.send("No token supplied!")
+        }else{
         userService.activateUser(db, req.query.token, (error, user) => {
             if(error){
                 res.send(error);
@@ -21,10 +24,21 @@ module.exports = function (app, db) {
                 res.send(user);
             }
         })
+    }
     });
 
     app.post('/Users/login', (req,res) => {
         userService.loginUser(db, req.body, (error, user) => {
+            if(error){
+                res.send(error);
+            }else{
+                res.send(user);
+            }
+        })
+    })
+
+    app.put('/Users', (req, res) => {
+        userService.updateUser(db, req.body, req.headers, (error, user) => {
             if(error){
                 res.send(error);
             }else{

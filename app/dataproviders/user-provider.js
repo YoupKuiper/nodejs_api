@@ -11,7 +11,17 @@ module.exports = {
     },
     
     activateUser: function (db, token, callback) {
-        db.collection('users').findOneAndUpdate({"activationToken": token}, {$set: {isActivated:true}}, null, (error, result) => {
+        db.collection('users').findOneAndUpdate({"activationToken": token}, {$set: {"isActivated":true}}, {returnOriginal:false}, (error, result) => {
+            if(error){
+                callback(error);
+            }else{
+                callback(null, result);
+            }
+        })
+    },
+    
+    updateUser: function (db, userId, measurements, callback) {
+        db.collection('users').findOneAndUpdate({"_id": userId}, {$set: {"length": measurements.length, "weight": measurements.weight}}, {upsert: true}, (error, result) => {
             if(error){
                 callback(error);
             }else{
@@ -31,11 +41,25 @@ module.exports = {
     },
 
     loginUser: function (db, user, callback) {
-        db.collection('users').findOneAndUpdate({"_id": user._id}, {$set: {authToken: user.authToken}}, null, (error, result) => {
+        db.collection('users').findOneAndUpdate({"_id": user._id}, {$set: {authToken: user.authToken}},{returnOriginal:false}, (error, result) => {
             if(error){
                 callback(error);
             }else{
                 callback(null, result.value);
+            }
+        })
+    },
+    
+    getUserByAuthToken: function (db, authtoken, callback) {
+        db.collection('users').findOne({"authToken": authtoken}, (error, user) => {
+            if(error){
+                callback(error);
+            }else{
+                if(user){
+                    callback(null, user);
+                }else{
+                    callback("Unauthorized");
+                }
             }
         })
     }
