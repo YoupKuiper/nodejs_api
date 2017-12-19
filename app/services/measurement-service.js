@@ -46,7 +46,7 @@ module.exports = {
                 })
             },
             function (user, callback) {
-                measurementProvider.getMeasurements(db, userId, (error, measurements) => {
+                measurementProvider.getMeasurements(db, user._id, (error, measurements) => {
                     if(error){
                         callback(error);
                     }else{
