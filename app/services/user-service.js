@@ -25,7 +25,7 @@ module.exports = {
                     from: 'info@zorgvoorhethart.nl',
                     to: user.emailAddress,
                     subject: 'Bedankt voor uw registratie',
-                    html: 'Beste ' + user.firstname + ", bedankt voor uw registratie. Klik op de volgende link om uw account te activeren: https://zvh-api.herokuapp.com/Users/activate?token=" + token,
+                    html: 'Beste ' + user.firstname + ", bedankt voor uw registratie. Klik op de volgende link om uw account te activeren:  zvh-api.herokuapp://.com/Users/activate?token=" + token,
                 }, function(err, reply) {
                     console.log(err && err.stack);
                     if(reply){
