@@ -46,4 +46,14 @@ module.exports = function (app, db) {
             }
         })
     })
+
+    app.post('/Users/forgotPassword', (req, res) => {
+        userService.sendForgotPasswordEmail(db, req.query.emailAddress, (error, result) => {
+            if(error){
+                res.send(error);
+            }else{
+                res.send(result);
+            }
+        })
+    })
 };
