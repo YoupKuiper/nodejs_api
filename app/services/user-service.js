@@ -21,18 +21,24 @@ module.exports = {
             //Generate a registration token for the user to register with
             const token = randtoken.generate(16);
 
-            sendmail({
-                    from: 'info@zorgvoorhethart.nl',
-                    to: user.emailAddress,
-                    subject: 'Bedankt voor uw registratie',
-                    html: 'Beste ' + user.firstname + ", bedankt voor uw registratie. Klik op de volgende link om uw account te activeren:  zvh-api.herokuapp://.com/Users/activate?token=" + token,
-                }, function(err, reply) {
-                    console.log(err && err.stack);
-                    if(reply){
-                        console.dir(reply);
-                        callback(null, token);
-                    }
-                });
+            if(user.emailAddress && user.firstname){
+                sendmail({
+                        from: 'info@zorgvoorhethart.nl',
+                        to: user.emailAddress,
+                        subject: 'Bedankt voor uw registratie',
+                        html: 'Beste ' + user.firstname + ", bedankt voor uw registratie. Klik op de volgende link om uw account te activeren:  zvh-api.herokuapp://.com/Users/activate?token=" + token,
+                    }, function(err, reply) {
+                        console.log(err && err.stack);
+                        if(reply){
+                            console.dir(reply);
+                            callback(null, token);
+                        }else{
+                            callback('E-mail sturen mislukt');
+                        }
+                    });
+                }else{
+                callback('Er mist benodigde informatie om u te kunnen registreren.')
+                }
             },
             function (token, callback) {
                 if(user){
@@ -178,6 +184,8 @@ module.exports = {
                     if(reply){
                         console.dir(reply);
                         callback(null, user);
+                    }else{
+                        callback("Er was een probleem met het versturen van de email, controleer het email-adres alstublieft.")
                     }
                 });
             }

@@ -69,7 +69,7 @@ module.exports = {
             if(error){
                 callback(error);
             }else{
-                if(user){
+                if(user.value){
                     callback(null, user.value);
                 }else{
                     callback("No user found with this email address");
