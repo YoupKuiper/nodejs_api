@@ -16,7 +16,8 @@ module.exports = function (app, db) {
 
     app.get('/Users/activate', (req, res) => {
         if(!req.query.token){
-            res.send("No token supplied!")
+            res.status(400);
+            res.send({"error":"No token supplied!"})
         }else{
         userService.activateUser(db, req.query.token, (error, user) => {
             if(error){
