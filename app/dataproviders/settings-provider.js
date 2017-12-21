@@ -6,7 +6,7 @@ module.exports = {
             if(error){
                 callback(error);
             }else{
-                callback(setting);
+                callback(null, setting);
             }
         })
     },
@@ -16,7 +16,7 @@ module.exports = {
             if(error){
                 callback(error);
             }else{
-                callback(settings);
+                callback(null, settings);
             }
         })
     }

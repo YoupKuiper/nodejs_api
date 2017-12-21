@@ -5,7 +5,7 @@ module.exports = {
             if(error){
                 callback(error);
             }else{
-                callback(user.ops[0]);
+                callback(null, user.ops[0]);
             }
         })
     },

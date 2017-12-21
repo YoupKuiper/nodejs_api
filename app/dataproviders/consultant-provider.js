@@ -5,7 +5,7 @@ module.exports = {
             if(error){
                 callback(error);
             }else{
-                callback(consultants);
+                callback(null, consultants);
             }
         })
     }

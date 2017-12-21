@@ -36,7 +36,7 @@ module.exports = function (app, db) {
                 res.status(400);
                 res.send({error});
             }else{
-                res.send(user);
+                res.send(null, user);
             }
         })
     })
