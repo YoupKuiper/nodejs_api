@@ -6,7 +6,7 @@ module.exports = function (app, db) {
         healthIssueService.getAllHealthIssues(db, req.headers, (error, healthIssues) => {
             if(error){
                 res.status(400);
-                res.send(error);
+                res.send({error});
             }else{
                 res.send(healthIssues)
             }

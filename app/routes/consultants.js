@@ -6,7 +6,7 @@ module.exports = function(app, db){
         consultantService.getAllConsultants(db, (error, consultants) => {
             if(error){
                 res.status(400);
-                res.send(error);
+                res.send({error});
             }else{
                 res.send(consultants)
             }

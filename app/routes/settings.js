@@ -6,7 +6,7 @@ module.exports = function (app, db) {
         settingsService.putSetting(db, req.body, req.query.userId, (error, settings) => {
             if(error){
                 res.status(400);
-                res.send(error);
+                res.send({error});
             }else{
                 res.send(settings);
             }
@@ -17,7 +17,7 @@ module.exports = function (app, db) {
         settingsService.getSettings(db, req.query.userId, (error, settings) => {
             if(error){
                 res.status(400);
-                res.send(error);
+                res.send({error});
             }else{
                 res.send(settings);
             }

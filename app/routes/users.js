@@ -7,7 +7,7 @@ module.exports = function (app, db) {
         userService.postUser(db, req.body, (error, user) => {
             if(error){
                 res.status(400);
-                res.send(error)
+                res.send({error})
             }else{
                 res.send(user);
             }
@@ -21,7 +21,7 @@ module.exports = function (app, db) {
         userService.activateUser(db, req.query.token, (error, user) => {
             if(error){
                 res.status(400);
-                res.send(error);
+                res.send({error});
             }else{
                 res.send(user);
             }
@@ -33,7 +33,7 @@ module.exports = function (app, db) {
         userService.loginUser(db, req.body, (error, user) => {
             if(error){
                 res.status(400);
-                res.send(error);
+                res.send({error});
             }else{
                 res.send(user);
             }
@@ -44,7 +44,7 @@ module.exports = function (app, db) {
         userService.updateUser(db, req.body, req.headers, (error, user) => {
             if(error){
                 res.status(400);
-                res.send(error);
+                res.send({error});
             }else{
                 res.send(user);
             }
@@ -55,7 +55,7 @@ module.exports = function (app, db) {
         userService.sendForgotPasswordEmail(db, req.query.emailAddress, (error, result) => {
             if(error){
                 res.status(400);
-                res.send(error);
+                res.send({error});
             }else{
                 res.send(result);
             }
