@@ -1,198 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="43342150-8fde-49a4-926d-4c3b67593f26" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/addressparser/.npmignore" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/addressparser/CHANGELOG.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/addressparser/LICENSE" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/addressparser/README.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/addressparser/lib/addressparser.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/addressparser/package.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/buildmail/.eslintrc.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/buildmail/.npmignore" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/buildmail/.travis.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/buildmail/CHANGELOG.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/buildmail/Gruntfile.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/buildmail/LICENSE" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/buildmail/README.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/buildmail/lib/buildmail.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/buildmail/node_modules/iconv-lite/.npmignore" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/buildmail/node_modules/iconv-lite/.travis.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/buildmail/node_modules/iconv-lite/Changelog.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/buildmail/node_modules/iconv-lite/LICENSE" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/buildmail/node_modules/iconv-lite/README.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/buildmail/node_modules/iconv-lite/encodings/dbcs-codec.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/buildmail/node_modules/iconv-lite/encodings/dbcs-data.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/buildmail/node_modules/iconv-lite/encodings/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/buildmail/node_modules/iconv-lite/encodings/internal.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/buildmail/node_modules/iconv-lite/encodings/sbcs-codec.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/buildmail/node_modules/iconv-lite/encodings/sbcs-data-generated.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/buildmail/node_modules/iconv-lite/encodings/sbcs-data.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/buildmail/node_modules/iconv-lite/encodings/tables/big5-added.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/buildmail/node_modules/iconv-lite/encodings/tables/cp936.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/buildmail/node_modules/iconv-lite/encodings/tables/cp949.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/buildmail/node_modules/iconv-lite/encodings/tables/cp950.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/buildmail/node_modules/iconv-lite/encodings/tables/eucjp.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/buildmail/node_modules/iconv-lite/encodings/tables/gb18030-ranges.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/buildmail/node_modules/iconv-lite/encodings/tables/gbk-added.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/buildmail/node_modules/iconv-lite/encodings/tables/shiftjis.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/buildmail/node_modules/iconv-lite/encodings/utf16.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/buildmail/node_modules/iconv-lite/encodings/utf7.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/buildmail/node_modules/iconv-lite/lib/bom-handling.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/buildmail/node_modules/iconv-lite/lib/extend-node.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/buildmail/node_modules/iconv-lite/lib/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/buildmail/node_modules/iconv-lite/lib/streams.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/buildmail/node_modules/iconv-lite/package.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/buildmail/node_modules/libmime/.eslintrc.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/buildmail/node_modules/libmime/.npmignore" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/buildmail/node_modules/libmime/CHANGELOG.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/buildmail/node_modules/libmime/LICENSE" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/buildmail/node_modules/libmime/README.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/buildmail/node_modules/libmime/lib/charset.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/buildmail/node_modules/libmime/lib/libmime.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/buildmail/node_modules/libmime/lib/mimetypes.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/buildmail/node_modules/libmime/package.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/buildmail/package.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/buildmail/test/fixtures/attachment.bin" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/buildmail/test/libbuildmail-test.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/dkim-signer/.npmignore" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/dkim-signer/.travis.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/dkim-signer/README.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/dkim-signer/lib/dkim.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/dkim-signer/package.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/libbase64/.npmignore" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/libbase64/LICENSE" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/libbase64/README.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/libbase64/lib/libbase64.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/libbase64/package.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/libmime/.eslintrc.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/libmime/.npmignore" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/libmime/CHANGELOG.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/libmime/LICENSE" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/libmime/README.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/libmime/lib/charset.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/libmime/lib/libmime.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/libmime/lib/mimetypes.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/libmime/node_modules/iconv-lite/.npmignore" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/libmime/node_modules/iconv-lite/.travis.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/libmime/node_modules/iconv-lite/Changelog.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/libmime/node_modules/iconv-lite/LICENSE" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/libmime/node_modules/iconv-lite/README.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/libmime/node_modules/iconv-lite/encodings/dbcs-codec.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/libmime/node_modules/iconv-lite/encodings/dbcs-data.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/libmime/node_modules/iconv-lite/encodings/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/libmime/node_modules/iconv-lite/encodings/internal.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/libmime/node_modules/iconv-lite/encodings/sbcs-codec.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/libmime/node_modules/iconv-lite/encodings/sbcs-data-generated.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/libmime/node_modules/iconv-lite/encodings/sbcs-data.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/libmime/node_modules/iconv-lite/encodings/tables/big5-added.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/libmime/node_modules/iconv-lite/encodings/tables/cp936.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/libmime/node_modules/iconv-lite/encodings/tables/cp949.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/libmime/node_modules/iconv-lite/encodings/tables/cp950.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/libmime/node_modules/iconv-lite/encodings/tables/eucjp.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/libmime/node_modules/iconv-lite/encodings/tables/gb18030-ranges.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/libmime/node_modules/iconv-lite/encodings/tables/gbk-added.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/libmime/node_modules/iconv-lite/encodings/tables/shiftjis.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/libmime/node_modules/iconv-lite/encodings/utf16.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/libmime/node_modules/iconv-lite/encodings/utf7.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/libmime/node_modules/iconv-lite/lib/bom-handling.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/libmime/node_modules/iconv-lite/lib/extend-node.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/libmime/node_modules/iconv-lite/lib/index.d.ts" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/libmime/node_modules/iconv-lite/lib/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/libmime/node_modules/iconv-lite/lib/streams.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/libmime/node_modules/iconv-lite/package.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/libmime/package.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/libqp/.npmignore" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/libqp/LICENSE" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/libqp/README.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/libqp/lib/libqp.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/libqp/package.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/mailcomposer/.eslintrc.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/mailcomposer/.npmignore" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/mailcomposer/Gruntfile.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/mailcomposer/LICENSE" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/mailcomposer/README.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/mailcomposer/lib/mailcomposer.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/mailcomposer/node_modules/iconv-lite/.npmignore" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/mailcomposer/node_modules/iconv-lite/.travis.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/mailcomposer/node_modules/iconv-lite/Changelog.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/mailcomposer/node_modules/iconv-lite/LICENSE" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/mailcomposer/node_modules/iconv-lite/README.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/mailcomposer/node_modules/iconv-lite/encodings/dbcs-codec.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/mailcomposer/node_modules/iconv-lite/encodings/dbcs-data.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/mailcomposer/node_modules/iconv-lite/encodings/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/mailcomposer/node_modules/iconv-lite/encodings/internal.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/mailcomposer/node_modules/iconv-lite/encodings/sbcs-codec.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/mailcomposer/node_modules/iconv-lite/encodings/sbcs-data-generated.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/mailcomposer/node_modules/iconv-lite/encodings/sbcs-data.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/mailcomposer/node_modules/iconv-lite/encodings/tables/big5-added.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/mailcomposer/node_modules/iconv-lite/encodings/tables/cp936.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/mailcomposer/node_modules/iconv-lite/encodings/tables/cp949.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/mailcomposer/node_modules/iconv-lite/encodings/tables/cp950.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/mailcomposer/node_modules/iconv-lite/encodings/tables/eucjp.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/mailcomposer/node_modules/iconv-lite/encodings/tables/gb18030-ranges.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/mailcomposer/node_modules/iconv-lite/encodings/tables/gbk-added.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/mailcomposer/node_modules/iconv-lite/encodings/tables/shiftjis.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/mailcomposer/node_modules/iconv-lite/encodings/utf16.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/mailcomposer/node_modules/iconv-lite/encodings/utf7.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/mailcomposer/node_modules/iconv-lite/lib/bom-handling.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/mailcomposer/node_modules/iconv-lite/lib/extend-node.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/mailcomposer/node_modules/iconv-lite/lib/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/mailcomposer/node_modules/iconv-lite/lib/streams.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/mailcomposer/node_modules/iconv-lite/package.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/mailcomposer/node_modules/libmime/.eslintrc.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/mailcomposer/node_modules/libmime/.npmignore" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/mailcomposer/node_modules/libmime/CHANGELOG.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/mailcomposer/node_modules/libmime/LICENSE" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/mailcomposer/node_modules/libmime/README.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/mailcomposer/node_modules/libmime/lib/charset.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/mailcomposer/node_modules/libmime/lib/libmime.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/mailcomposer/node_modules/libmime/lib/mimetypes.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/mailcomposer/node_modules/libmime/package.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/mailcomposer/package.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/nodemailer-fetch/.eslintrc.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/nodemailer-fetch/.npmignore" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/nodemailer-fetch/.travis.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/nodemailer-fetch/CHANGELOG.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/nodemailer-fetch/Gruntfile.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/nodemailer-fetch/LICENSE" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/nodemailer-fetch/README.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/nodemailer-fetch/lib/cookies.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/nodemailer-fetch/lib/fetch.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/nodemailer-fetch/package.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/nodemailer-fetch/test/cookies-test.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/nodemailer-fetch/test/fetch-test.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/nodemailer-shared/.eslintrc.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/nodemailer-shared/.npmignore" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/nodemailer-shared/.travis.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/nodemailer-shared/Gruntfile.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/nodemailer-shared/LICENSE" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/nodemailer-shared/README.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/nodemailer-shared/lib/shared.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/nodemailer-shared/package.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/nodemailer-shared/test/fixtures/message.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/nodemailer-shared/test/shared-test.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/sendmail/.github/CONTRIBUTING.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/sendmail/.github/ISSUE_TEMPLATE.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/sendmail/.github/PULL_REQUEST_TEMPLATE.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/sendmail/.npmignore" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/sendmail/LICENSE" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/sendmail/Readme.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/sendmail/examples/attachmentFile.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/sendmail/examples/devHostPort.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/sendmail/examples/developmentMode.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/sendmail/examples/dkim-private.pem" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/sendmail/examples/dkim.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/sendmail/examples/meetingRequest.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/sendmail/examples/simple.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/sendmail/package.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/sendmail/sendmail.js" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+    <list default="true" id="a7695665-c7e6-4c30-936f-351e62408dd1" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/dataproviders/consultant-provider.js" afterPath="$PROJECT_DIR$/app/dataproviders/consultant-provider.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/dataproviders/settings-provider.js" afterPath="$PROJECT_DIR$/app/dataproviders/settings-provider.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/dataproviders/user-provider.js" afterPath="$PROJECT_DIR$/app/dataproviders/user-provider.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/routes/consultants.js" afterPath="$PROJECT_DIR$/app/routes/consultants.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/routes/health-issues.js" afterPath="$PROJECT_DIR$/app/routes/health-issues.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/routes/measurements.js" afterPath="$PROJECT_DIR$/app/routes/measurements.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/routes/settings.js" afterPath="$PROJECT_DIR$/app/routes/settings.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/routes/users.js" afterPath="$PROJECT_DIR$/app/routes/users.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/services/user-service.js" afterPath="$PROJECT_DIR$/app/services/user-service.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package-lock.json" afterPath="$PROJECT_DIR$/package-lock.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
     </list>
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -206,7 +26,11 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
               <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
+              <folding>
+                <marker date="1514058649515" expanded="true" signature="142:251" ph="{...}" />
+                <marker date="1514058649515" expanded="true" signature="205:251" ph="{...}" />
+                <marker date="1514058649515" expanded="true" signature="228:251" ph="{...}" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -216,7 +40,15 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
               <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
+              <folding>
+                <marker date="1514058649470" expanded="true" signature="64:228" ph="{...}" />
+                <marker date="1514058649470" expanded="true" signature="126:228" ph="{...}" />
+                <marker date="1514058649470" expanded="true" signature="201:228" ph="{...}" />
+                <marker date="1514058649470" expanded="true" signature="2612:2633" ph="{...}" />
+                <marker date="1514058649470" expanded="true" signature="2612:2647" ph="{...}" />
+                <marker date="1514058649470" expanded="true" signature="2612:2657" ph="{...}" />
+                <marker date="1514058649470" expanded="true" signature="2612:2664" ph="{...}" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -226,7 +58,12 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
               <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
+              <folding>
+                <marker date="1514058649505" expanded="true" signature="142:279" ph="{...}" />
+                <marker date="1514058649505" expanded="true" signature="233:279" ph="{...}" />
+                <marker date="1514058649505" expanded="true" signature="256:279" ph="{...}" />
+                <marker date="1514058649505" expanded="true" signature="625:641" ph="{...}" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -234,8 +71,8 @@
       <file leaf-file-name="user-service.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/services/user-service.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="309">
-              <caret line="32" column="54" lean-forward="true" selection-start-line="32" selection-start-column="54" selection-end-line="32" selection-end-column="54" />
+            <state relative-caret-position="399">
+              <caret line="45" column="15" lean-forward="false" selection-start-line="45" selection-start-column="15" selection-end-line="45" selection-end-column="15" />
               <folding />
             </state>
           </provider>
@@ -304,7 +141,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/app/services/user-service.js" />
       </list>
     </option>
@@ -314,15 +150,6 @@
   <component name="JsGulpfileManager">
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
-  </component>
-  <component name="NodeModulesDirectoryManager">
-    <handled-path value="$PROJECT_DIR$/node_modules" />
-  </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-9" />
-    <option name="y" value="-9" />
-    <option name="width" value="1938" />
-    <option name="height" value="1048" />
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
@@ -503,12 +330,12 @@
       <option name="presentableId" value="Default" />
       <updated>1513683126785</updated>
       <workItem from="1513683128018" duration="5122000" />
-      <workItem from="1514054673829" duration="3538000" />
+      <workItem from="1514054673829" duration="3848000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="8660000" />
+    <option name="totallyTimeSpent" value="8970000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
@@ -522,7 +349,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3289183" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3289183" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289183" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -572,7 +399,15 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <marker date="1514058649470" expanded="true" signature="64:228" ph="{...}" />
+            <marker date="1514058649470" expanded="true" signature="126:228" ph="{...}" />
+            <marker date="1514058649470" expanded="true" signature="201:228" ph="{...}" />
+            <marker date="1514058649470" expanded="true" signature="2612:2633" ph="{...}" />
+            <marker date="1514058649470" expanded="true" signature="2612:2647" ph="{...}" />
+            <marker date="1514058649470" expanded="true" signature="2612:2657" ph="{...}" />
+            <marker date="1514058649470" expanded="true" signature="2612:2664" ph="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -580,7 +415,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <marker date="1514058649505" expanded="true" signature="142:279" ph="{...}" />
+            <marker date="1514058649505" expanded="true" signature="233:279" ph="{...}" />
+            <marker date="1514058649505" expanded="true" signature="256:279" ph="{...}" />
+            <marker date="1514058649505" expanded="true" signature="625:641" ph="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -628,7 +468,11 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <marker date="1514058649515" expanded="true" signature="142:251" ph="{...}" />
+            <marker date="1514058649515" expanded="true" signature="205:251" ph="{...}" />
+            <marker date="1514058649515" expanded="true" signature="228:251" ph="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -642,8 +486,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/services/user-service.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="309">
-          <caret line="32" column="54" lean-forward="true" selection-start-line="32" selection-start-column="54" selection-end-line="32" selection-end-column="54" />
+        <state relative-caret-position="399">
+          <caret line="45" column="15" lean-forward="false" selection-start-line="45" selection-start-column="15" selection-end-line="45" selection-end-column="15" />
           <folding />
         </state>
       </provider>

@@ -44,7 +44,6 @@ module.exports = {
                     callback(null, token);
                 }
             });
-
             },
             function (token, callback) {
                 if(user){
@@ -163,6 +162,45 @@ module.exports = {
             }
         })
 
+    },
+
+    sendForgotPasswordEmail: function (db, emailAddress, callback) {
+        async.waterfall([
+            function (callback) {
+                //Genereer een token om te resetten en sla op bij de user
+                const token = randtoken.generate(16);
+                userProvider.putUserResetPasswordToken(db, emailAddress, token, (error, user) => {
+                    if (error) {
+                        callback(error);
+                    } else {
+                        callback(null, user);
+                    }
+                });
+            },
+            function (user, callback) {
+                //stuur de email met de link met de token in de email
+                sendmail({
+                    from: 'info@zorgvoorhethart.nl',
+                    to: emailAddress,
+                    subject: 'Herstel uw wachtwoord',
+                    html: 'Klikt u op de volgende link om uw wachtwoord te herstellen: zvh-api.herokuapp://.com/Users/resetPassword?token=' + user.resetPasswordToken,
+                }, function(err, reply) {
+                    console.log(err && err.stack);
+                    if(reply){
+                        console.dir(reply);
+                        callback(null, user);
+                    }else{
+                        callback("Er was een probleem met het versturen van de email, controleer het email-adres alstublieft.")
+                    }
+                });
+            }
+        ], function (error, result) {
+            if(error){
+                callback(error);
+            }else{
+                callback(null, result);
+            }
+        })
     }
 };
 

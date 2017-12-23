@@ -5,7 +5,7 @@ module.exports = {
             if(error){
                 callback(error);
             }else{
-                callback(user.ops[0]);
+                callback(null, user.ops[0]);
             }
         })
     },
@@ -59,6 +59,20 @@ module.exports = {
                     callback(null, user);
                 }else{
                     callback("Unauthorized");
+                }
+            }
+        })
+    },
+
+    putUserResetPasswordToken: function (db, emailAddress, resetPasswordToken, callback) {
+        db.collection('users').findOneAndUpdate({"emailAddress": emailAddress}, {$set: {"resetPasswordToken": resetPasswordToken}}, {returnOriginal: false}, (error, user) => {
+            if(error){
+                callback(error);
+            }else{
+                if(user.value){
+                    callback(null, user.value);
+                }else{
+                    callback("No user found with this email address");
                 }
             }
         })
