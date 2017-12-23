@@ -27,6 +27,7 @@ module.exports = {
                 from: process.env.EMAIL_ADDRESS, // sender address
                 to: user.emailAddress, // list of receivers
                 subject: 'Uw registratie bij zorg voor het hart applicatie', // Subject line
+                html: '<a href="twitter://user?screen_name=iamelliot">follow elliot</a>',
                 text: 'Ga naar deze URL om uw account te activeren: zvh-api.herokuapp://.com/Users?token=' + token // html body
             };
 
