@@ -1,17 +1,9 @@
 const userProvider = require('../dataproviders/user-provider');
 const authorizationService = require('./authorization-service');
+const nodemailer = require('nodemailer');
 const ObjectId = require('mongodb').ObjectID;
 const async = require('async');
 const passwordHash = require('password-hash');
-const sendmail = require('sendmail')({
-    logger: {
-        debug: console.log,
-        info: console.info,
-        warn: console.warn,
-        error: console.error
-    },
-    silent: false
-});
 const randtoken = require('rand-token');
 
 module.exports = {
@@ -21,18 +13,38 @@ module.exports = {
             //Generate a registration token for the user to register with
             const token = randtoken.generate(16);
 
-            sendmail({
-                    from: 'info@zorgvoorhethart.nl',
-                    to: user.emailAddress,
-                    subject: 'Bedankt voor uw registratie',
-                    html: 'Beste ' + user.firstname + ", bedankt voor uw registratie. Klik op de volgende link om uw account te activeren:  zvh-api.herokuapp://.com/Users/activate?token=" + token,
-                }, function(err, reply) {
-                    console.log(err && err.stack);
-                    if(reply){
-                        console.dir(reply);
-                        callback(null, token);
-                    }
-                });
+            // create reusable transporter object using the default SMTP transport
+            let transporter = nodemailer.createTransport({
+                service: 'gmail',
+                auth: {
+                    user: process.env.EMAIL_ADDRESS,
+                    pass: process.env.EMAIL_PASSWORD
+                }
+            });
+
+            // setup email data with unicode symbols
+            let mailOptions = {
+                from: process.env.EMAIL_ADDRESS, // sender address
+                to: user.emailAddress, // list of receivers
+                subject: 'Uw registratie bij zorg voor het hart applicatie', // Subject line
+                text: 'Ga naar deze URL om uw account te activeren: zvh-api.herokuapp://.com/Users?token=' + token // html body
+            };
+
+            // send mail with defined transport object
+            transporter.sendMail(mailOptions, (error, info) => {
+                    if (error) {
+                        callback("Email versturen mislukt")
+                    }else {
+                    console.log('Message sent: %s', info.messageId);
+                    // Preview only available when sending through an Ethereal account
+                    console.log('Preview URL: %s', nodemailer.getTestMessageUrl(info));
+
+                    // Message sent: <b658f8ca-6296-ccf4-8306-87d57a0b4321@blurdybloop.com>
+                    // Preview URL: https://ethereal.email/message/WaQKMgKddxQDoou...
+                    callback(null, token);
+                }
+            });
+
             },
             function (token, callback) {
                 if(user){
