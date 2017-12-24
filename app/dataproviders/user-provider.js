@@ -15,7 +15,11 @@ module.exports = {
             if(error){
                 callback(error);
             }else{
-                callback(null, result);
+                if(result.value){
+                    callback(null, 'Uw account is succesvol geactiveerd, u kunt nu inloggen in de applicatie')
+                }else{
+                    callback('Gebruiker niet gevonden')
+                }
             }
         })
     },
@@ -50,13 +54,26 @@ module.exports = {
         })
     },
     
-    getUserByAuthToken: function (db, authtoken, callback) {
-        db.collection('users').findOne({"authToken": authtoken}, (error, user) => {
+    getUserConsultantByAuthToken: function (db, authtoken, callback) {
+        db.collection('users').aggregate([
+            { $match: {"authToken": authtoken} },
+            { $lookup: {
+                from: 'consultants',
+                localField: 'consultantId',
+                foreignField: '_id',
+                as: 'consultant'
+            }},
+            { $limit: 1 }
+        ], (error, user) => {
             if(error){
                 callback(error);
             }else{
-                if(user){
-                    callback(null, user);
+                if(user[0]){
+                    if(user[0].consultant[0]){
+                        callback(null, user[0]);
+                    }else{
+                        callback('Consultant not found');
+                    }
                 }else{
                     callback("Unauthorized");
                 }
