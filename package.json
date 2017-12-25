@@ -17,13 +17,13 @@
   },
   "homepage": "https://github.com/YoupKuiper/nodejs_api#readme",
   "dependencies": {
-    "async": "^2.6.0",
-    "body-parser": "^1.18.2",
-    "express": "^4.16.2",
-    "mongodb": "^2.2.33",
+    "async": "2.6.0",
+    "body-parser": "1.18.2",
+    "express": "4.16.2",
+    "mongodb": "2.2.33",
+    "nodemailer": "4.4.1",
     "nvm": "0.0.4",
-    "password-hash": "^1.2.2",
-    "rand-token": "^0.4.0",
-    "sendmail": "^1.2.0"
+    "password-hash": "1.2.2",
+    "rand-token": "0.4.0"
   }
 }
