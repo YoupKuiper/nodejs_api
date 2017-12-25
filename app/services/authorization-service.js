@@ -13,5 +13,19 @@ module.exports = {
         }else{
             callback("Authtoken required!");
         }
-    }
+    },
+
+    validateAuthtokenAndGetUserConsultant: function (db, headers, callback) {
+        if(headers["x-authtoken"]){
+            userProvider.getUserConsultantByAuthToken(db, headers["x-authtoken"], (error, user) => {
+                if(error){
+                    callback(error);
+                }else{
+                    callback(null, user);
+                }
+            })
+        }else{
+            callback("Authtoken required!");
+        }
+    },
 }
