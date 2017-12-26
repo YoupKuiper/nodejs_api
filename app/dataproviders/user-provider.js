@@ -32,16 +32,12 @@ module.exports = {
                         '    <script>\n' +
                         '    window.onload = function() {\n' +
                         '    <!-- Deep link URL for existing users with app already installed on their device -->\n' +
-                        '        window.location = "zvh-app://test";\n' +
-                        'setTimeout("window.location.href = \'zvh-app://test\';", 1000);\n' +
+                        '        window.location = "zvh-app://login";\n' +
                         '    }\n' +
                         '    </script>\n' +
                         '</head>\n' +
                         '<body>\n' +
-                        '    <form action="zvh-app://Users" target="_blank">\n' +
-                        '        <input type="submit" value="Open App" />\n' +
-                        '    </form>\n'+
-                        '<a href="zvh-app://test"> Open de app</a>\n' +
+                        '<p>Uw account is geactiveerd, u kunt nu naar de app gaan om in te loggen.</p>\n' +
                         '</body>'
 
                     )
