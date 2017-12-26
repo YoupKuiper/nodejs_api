@@ -16,7 +16,35 @@ module.exports = {
                 callback(error);
             }else{
                 if(result.value){
-                    callback(null, 'Uw account is succesvol geactiveerd, u kunt nu inloggen in de applicatie')
+                    callback(null,
+                        '<head>\n' +
+                        '    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">\n' +
+                        '    <meta name="viewport" content="width=device-width,minimum-scale=1.0, maximum-scale=1.0" />\n' +
+                        '    <title>Site Name</title>\n' +
+                        '    <style>@media screen and (max-device-width:480px){body{-webkit-text-size-adjust:none}}</style>\n' +
+                        ' \n' +
+                        '    <!-- implement javascript on web page that first first tries to open the deep link\n' +
+                        '        1. if user has app installed, then they would be redirected to open the app to specified screen\n' +
+                        '        2. if user doesn\'t have app installed, then their browser wouldn\'t recognize the URL scheme\n' +
+                        '        and app wouldn\'t open since it\'s not installed. In 1 second (1000 milliseconds) user is redirected\n' +
+                        '        to download app from app store.\n' +
+                        '     -->\n' +
+                        '    <script>\n' +
+                        '    window.onload = function() {\n' +
+                        '    <!-- Deep link URL for existing users with app already installed on their device -->\n' +
+                        '        window.location = "zvh-app://test";\n' +
+                        'setTimeout("window.location.href = \'zvh-app://test\';", 1000);\n' +
+                        '    }\n' +
+                        '    </script>\n' +
+                        '</head>\n' +
+                        '<body>\n' +
+                        '    <form action="zvh-app://Users" target="_blank">\n' +
+                        '        <input type="submit" value="Open App" />\n' +
+                        '    </form>\n'+
+                        '<a href="zvh-app://test"> Open de app</a>\n' +
+                        '</body>'
+
+                    )
                 }else{
                     callback('Gebruiker niet gevonden')
                 }
