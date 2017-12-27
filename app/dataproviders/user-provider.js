@@ -58,7 +58,7 @@ module.exports = {
                         '    <script>\n' +
                         '    window.onload = function() {\n' +
                         '    <!-- Deep link URL for existing users with app already installed on their device -->\n' +
-                        '        window.location = "zvh-app://login/" + token;\n' +
+                        '        window.location = "zvh-app://login/<%= token %>";\n' +
                         '    }\n' +
                         '    </script>\n' +
                         '</head>\n' +
