@@ -22,12 +22,6 @@ module.exports = {
                         '    <meta name="viewport" content="width=device-width,minimum-scale=1.0, maximum-scale=1.0" />\n' +
                         '    <title>Site Name</title>\n' +
                         '    <style>@media screen and (max-device-width:480px){body{-webkit-text-size-adjust:none}}</style>\n' +
-                        ' \n' +
-                        '    <!-- implement javascript on web page that first first tries to open the deep link\n' +
-                        '        1. if user has app installed, then they would be redirected to open the app to specified screen\n' +
-                        '        2. if user doesn\'t have app installed, then their browser wouldn\'t recognize the URL scheme\n' +
-                        '        and app wouldn\'t open since it\'s not installed. In 1 second (1000 milliseconds) user is redirected\n' +
-                        '        to download app from app store.\n' +
                         '     -->\n' +
                         '    <script>\n' +
                         '    window.onload = function() {\n' +
@@ -42,7 +36,53 @@ module.exports = {
 
                     )
                 }else{
-                    callback('Gebruiker niet gevonden')
+                    callback('Gebruiker niet gevonden');
+                }
+            }
+        })
+    },
+
+    getUserByResetPasswordToken: function (db, token, callback) {
+        db.collection('users').findOne({"resetPasswordToken": token}, (error, result) => {
+            if(error){
+                callback(error);
+            }else{
+                if(result){
+                    callback(null,
+                        '<head>\n' +
+                        '    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">\n' +
+                        '    <meta name="viewport" content="width=device-width,minimum-scale=1.0, maximum-scale=1.0" />\n' +
+                        '    <title>Site Name</title>\n' +
+                        '    <style>@media screen and (max-device-width:480px){body{-webkit-text-size-adjust:none}}</style>\n' +
+                        '     -->\n' +
+                        '    <script>\n' +
+                        '    window.onload = function() {\n' +
+                        '    <!-- Deep link URL for existing users with app already installed on their device -->\n' +
+                        '        window.location = "zvh-app://login/" + token;\n' +
+                        '    }\n' +
+                        '    </script>\n' +
+                        '</head>\n' +
+                        '<body>\n' +
+                        '<form method="post" action="">\n' +
+                        '\n' +
+                        '<label for="newPassword">New Password:</label> \n' +
+                        '<input type="password" id="newPassword" name="newPassword" title="New password" />\n' +
+                        '\n' +
+                        '<label for="confirmPassword">Confirm Password:</label> \n' +
+                        '<input type="password" id="confirmPassword" name="confirmPassword" title="Confirm new password" />\n' +
+                        '\n' +
+                        '<label for="token">Pasword Token:</label> \n' +
+                        '<input type="text" id="token" name="token" title="Password Token" />\n' +
+                        '\n' +
+                        '<p class="form-actions">\n' +
+                        '<input type="submit" value="Change Password" title="Change password" />\n' +
+                        '</p>\n' +
+                        '\n' +
+                        '</form>\n' +
+                        '</body>'
+                        )
+                }else{
+                    callback('Gebruiker niet gevonden');
                 }
             }
         })

@@ -27,7 +27,7 @@ module.exports = {
                 from: process.env.EMAIL_ADDRESS, // sender address
                 to: user.emailAddress, // list of receivers
                 subject: 'Uw registratie bij zorg voor het hart applicatie', // Subject line
-                text: 'Ga naar deze URL om uw account te activeren: http://zvh-api.herokuapp.com/Users/activate?token=' + token // html body
+                text: 'Ga naar deze URL om uw account te activeren: https://zvh-api.herokuapp.com/Users/activate?token=' + token // html body
             };
 
             // send mail with defined transport object
@@ -76,6 +76,20 @@ module.exports = {
                 callback(error);
             }else{
                 callback(null, result);
+            }
+        })
+    },
+
+    redirectToResetPassword: function (db, token, callback) {
+        userProvider.getUserByResetPasswordToken(db, token, (error, user) => {
+            if(error){
+                callback(error);
+            }else{
+                if(user){
+                    callback(null, user);
+                }else{
+                    callback(null, 'User not found');
+                }
             }
         })
     },
@@ -178,19 +192,34 @@ module.exports = {
                 });
             },
             function (user, callback) {
-                //stuur de email met de link met de token in de email
-                sendmail({
-                    from: 'info@zorgvoorhethart.nl',
-                    to: emailAddress,
+
+                // create reusable transporter object using the default SMTP transport
+                let transporter = nodemailer.createTransport({
+                    service: 'gmail',
+                    auth: {
+                        user: process.env.EMAIL_ADDRESS,
+                        pass: process.env.EMAIL_PASSWORD
+                    }
+                });
+
+                // setup email data with unicode symbols
+                let mailOptions = {
+                    from: process.env.EMAIL_ADDRESS, // sender address
+                    to: emailAddress, // list of receivers
                     subject: 'Herstel uw wachtwoord',
-                    html: 'Klikt u op de volgende link om uw wachtwoord te herstellen: zvh-api.herokuapp://.com/Users/resetPassword?token=' + user.resetPasswordToken,
-                }, function(err, reply) {
-                    console.log(err && err.stack);
-                    if(reply){
-                        console.dir(reply);
-                        callback(null, user);
-                    }else{
-                        callback("Er was een probleem met het versturen van de email, controleer het email-adres alstublieft.")
+                    html: 'Klikt u op de volgende link om uw wachtwoord te herstellen: https://zvh-api.herokuapp.com/Users/goToResetPassword?token=' + user.resetPasswordToken,
+                };
+
+                // send mail with defined transport object
+                transporter.sendMail(mailOptions, (error, info) => {
+                    if (error) {
+                        callback("Email versturen mislukt")
+                    }else {
+                        console.log('Message sent: %s', info.messageId);
+                        // Preview only available when sending through an Ethereal account
+                        console.log('Preview URL: %s', nodemailer.getTestMessageUrl(info));
+
+                        callback(null, 'gelukt');
                     }
                 });
             }

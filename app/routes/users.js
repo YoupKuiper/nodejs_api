@@ -19,15 +19,31 @@ module.exports = function (app, db) {
             res.status(400);
             res.send({"error":"No token supplied!"})
         }else{
-        userService.activateUser(db, req.query.token, (error, user) => {
-            if(error){
-                res.status(400);
-                res.send({error});
-            }else{
-                res.send(user);
-            }
-        })
-    }
+            userService.activateUser(db, req.query.token, (error, user) => {
+                if(error){
+                    res.status(400);
+                    res.send({error});
+                }else{
+                    res.send(user);
+                }
+            })
+        }
+    });
+
+    app.get('/Users/goToResetPassword', (req, res) => {
+        if(!req.query.token){
+            res.status(400);
+            res.send({"error": "No token supplied!"})
+        }else{
+            userService.redirectToResetPassword(db, req.query.token, (error, result) => {
+                if(error){
+                    res.status(400);
+                    res.send({error});
+                }else{
+                    res.send(result);
+                }
+            })
+        }
     });
 
     app.post('/Users/login', (req,res) => {
