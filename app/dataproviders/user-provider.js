@@ -11,7 +11,7 @@ module.exports = {
     },
 
     getUserByAuthToken: function (db, token, callback) {
-        db.collection('user').findOne({'authtoken': token}, (error, user) => {
+        db.collection('users').findOne({"authToken": token}, (error, user) => {
             if(error){
                 callback(error);
             }else{
