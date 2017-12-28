@@ -43,7 +43,7 @@ module.exports = {
     },
 
     resetPassword: function (db, body, callback) {
-        db.collection('users').findOneAndUpdate({"resetPasswordToken": body.token}, {"password": body.password}, (error, result) => {
+        db.collection('users').findOneAndUpdate({"resetPasswordToken": body.token}, {$set: {"password": body.password}}, (error, result) => {
             if(error){
                 callback(error);
             }else{
