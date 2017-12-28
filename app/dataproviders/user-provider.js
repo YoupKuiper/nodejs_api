@@ -9,6 +9,20 @@ module.exports = {
             }
         })
     },
+
+    getUserByAuthToken: function (db, token, callback) {
+        db.collection('user').findOne({'authtoken': token}, (error, user) => {
+            if(error){
+                callback(error);
+            }else{
+                if(user){
+                    callback(null, user);
+                }else{
+                    callback(null, 'Gebruiker niet gevonden');
+                }
+            }
+        })
+    },
     
     activateUser: function (db, token, callback) {
         db.collection('users').findOneAndUpdate({"activationToken": token}, {$set: {"isActivated":true}}, {returnOriginal:false}, (error, result) => {
