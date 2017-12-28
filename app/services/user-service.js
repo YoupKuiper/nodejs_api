@@ -85,13 +85,45 @@ module.exports = {
             if(error){
                 callback(error);
             }else{
-                if(user){
-                    callback(null, user);
-                }else{
-                    callback(null, 'User not found');
-                }
+                callback(null, user);
             }
         })
+    },
+
+    resetPassword: function (db, body, callback) {
+        async.waterfall([
+            function (callback) {
+                if(body.password && body.confirmedPassword && body.token){
+                    if(body.password === body.confirmedPassword){
+                        body.password = passwordHash.generate(body.password);
+                        callback(null)
+                    }else{
+                        callback('Wachtwoorden komen niet overeen');
+                    }
+                }else{
+                    callback('Password of token mist');
+                }
+            },
+            function (callback) {
+                userProvider.resetPassword(db, body, (error, user) => {
+                    if(error){
+                        callback(error);
+                    }else{
+                        if(user){
+                            callback(null, user)
+                        }
+                    }
+                })
+            }
+
+        ], function (error, result) {
+            if(error){
+                callback(error);
+            }else{
+                callback(null, result);
+            }
+        })
+
     },
 
     updateUser: function (db, measurements, headers, callback) {

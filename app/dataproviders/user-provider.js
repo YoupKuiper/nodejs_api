@@ -42,6 +42,20 @@ module.exports = {
         })
     },
 
+    resetPassword: function (db, body, callback) {
+        db.collection('users').findOneAndUpdate({"resetPasswordToken": body.token}, {"password": body.password}, (error, result) => {
+            if(error){
+                callback(error);
+            }else{
+                if(result.value){
+                    callback(null, result.value);
+                }else{
+                    callback('Gebruiker niet gevonden');
+                }
+            }
+        })
+    },
+
     getUserByResetPasswordToken: function (db, token, callback) {
         db.collection('users').findOne({"resetPasswordToken": token}, (error, result) => {
             if(error){
@@ -58,7 +72,7 @@ module.exports = {
                         '    <script>\n' +
                         '    window.onload = function() {\n' +
                         '    <!-- Deep link URL for existing users with app already installed on their device -->\n' +
-                        '        window.location = "zvh-app://login/<%= token %>";\n' +
+                        '        window.location = "zvh-app://login/";\n' +
                         '    }\n' +
                         '    </script>\n' +
                         '</head>\n' +
