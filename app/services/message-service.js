@@ -23,7 +23,7 @@ module.exports = {
                     }else{
                         callback(null, user);
                     }
-                })
+                });
             },
             function (user, callback) {
                 sendmail({
@@ -35,9 +35,22 @@ module.exports = {
                     console.log(err && err.stack);
                     if(reply){
                         console.dir(reply);
-                        callback(null, 'Bericht succesvol verzonden!');
+                        callback(null, user);
                     }else{
-                        callback('Error');
+                        callback('Bericht versturen mislukt.');
+                    }
+                });
+            },
+            function (user, callback) {
+
+                message.userId = user._id;
+                message.consultantId = user.consultant[0]._id;
+
+                messageProvider.postMessage(db, message, (error, message) => {
+                    if(error){
+                        callback(error);
+                    }else{
+                        callback(null, message);
                     }
                 });
             }

@@ -4,6 +4,7 @@ const measurementRoutes = require('./measurements');
 const messageRoutes = require('./messages');
 const settingsRoutes = require('./settings');
 const userRoutes = require('./users');
+const faqRoutes = require('./faq');
 
 
 module.exports = function(app, db) {
@@ -14,5 +15,6 @@ module.exports = function(app, db) {
     messageRoutes(app, db);
     settingsRoutes(app, db);
     userRoutes(app, db);
+    faqRoutes(app, db);
 
 };
