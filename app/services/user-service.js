@@ -160,7 +160,7 @@ module.exports = {
         async.waterfall([
             function (callback) {
                 if(isEmpty(credentials.emailAddress) || isEmpty(credentials.password)){
-                    callback("Email address or password missing");
+                    callback("E-mail adres of wachtwoord mist");
                 }else{
                     callback(null)
                 }
@@ -171,9 +171,10 @@ module.exports = {
                         callback(error);
                     }else{
                         if(user){
+                            user.consultant = user.consultant[0];
                             callback(null,user);
                         }else{
-                            callback("User not found");
+                            callback("Gebruiker niet gevonden");
                         }
                     }
                 })
@@ -182,17 +183,17 @@ module.exports = {
                     user.authToken = randtoken.generate(16);
                     callback(null, user);
                 }else{
-                    callback("User hasn't been activated yet. Please activate the account first by clicking the link in the email that has been sent to your email address.");
+                    callback("Gebruiker is nog niet geactiveerd, activeer alstublieft eerst uw account voordat u inlogt.");
                 }
             }, function (user, callback) {
                 if(passwordHash.verify(credentials.password, user.password)){
                     callback(null, user);
                 }else{
-                    callback("Wrong password");
+                    callback("Wachtwoord onjuist");
                 }
             },
             function (user, callback) {
-                userProvider.loginUser(db, user, (error, user) => {
+                userProvider.loginUser(db, user, (error, loggedInUser) => {
                     if(error){
                         callback(error);
                     }else{

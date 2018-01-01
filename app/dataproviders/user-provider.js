@@ -127,11 +127,28 @@ module.exports = {
     },
 
     getUserByEmailAddress: function (db, credentials, callback) {
-        db.collection('users').findOne({"emailAddress": credentials.emailAddress}, (error, user) => {
+        db.collection('users').aggregate([
+            { $match: {"emailAddress": credentials.emailAddress} },
+            { $lookup: {
+                from: 'consultants',
+                localField: 'consultantId',
+                foreignField: '_id',
+                as: 'consultant'
+            }},
+            { $limit: 1 }
+        ], (error, user) => {
             if(error){
                 callback(error);
             }else{
-                callback(null, user);
+                if(user[0]){
+                    if(user[0].consultant[0]){
+                        callback(null, user[0]);
+                    }else{
+                        callback('Consultant not found');
+                    }
+                }else{
+                    callback("Unauthorized");
+                }
             }
         })
     },
@@ -141,6 +158,7 @@ module.exports = {
             if(error){
                 callback(error);
             }else{
+                user.authToken = result.value.authToken;
                 callback(null, result.value);
             }
         })
