@@ -33,6 +33,36 @@ module.exports = {
         })
 
     },
+
+    putMeasurement: function (db, measurement, headers, callback) {
+        async.waterfall([
+            function (callback) {
+                authorizationService.validateAuthtoken(db, headers, (error, result) => {
+                    if(error){
+                        callback(error);
+                    }else{
+                        callback(null, result);
+                    }
+                })
+            },
+            function (user, callback) {
+                measurementProvider.putMeasurement(db, measurement, user._id, (error, result) => {
+                    if (error) {
+                        callback(error);
+                    } else {
+                        callback(null, result);
+                    }
+                })
+            }
+        ], function (error, result) {
+            if(error){
+                callback(error);
+            }else{
+                callback(null, result);
+            }
+        })
+
+    },
     
     getMeasurements: function (db, headers, callback) {
         async.waterfall([

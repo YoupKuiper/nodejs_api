@@ -16,6 +16,18 @@ module.exports = {
             }
         })
     },
+
+    putMeasurement: function (db, measurement, userId, callback) {
+        measurement._id = ObjectId(measurement._id);
+        measurement.userId = ObjectId(measurement.userId);
+        db.collection('measurements').findOneAndUpdate({"_id": measurement._id}, measurement, (error, result)=> {
+            if(error){
+                callback(error);
+            }else{
+                callback(null, result);
+            }
+        })
+    },
     
     getMeasurements: function (db, userId, callback) {
         userId = ObjectId(userId);
