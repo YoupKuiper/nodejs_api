@@ -20,6 +20,7 @@ module.exports = {
     putMeasurement: function (db, measurement, userId, callback) {
         measurement._id = ObjectId(measurement._id);
         measurement.userId = ObjectId(measurement.userId);
+        measurement.comment = measurement.comment ? measurement.comment : "";
         db.collection('measurements').findOneAndUpdate({"_id": measurement._id},
             {$set:
                 {
