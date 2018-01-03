@@ -61,5 +61,34 @@ module.exports = {
                 callback(null, result);
             }
         });
+    },
+
+    getMessages: function (db, headers, callback) {
+        async.waterfall([
+            function (callback) {
+                authorizationService.validateAuthtokenAndGetUserConsultant(db, headers, (error, user) => {
+                    if(error){
+                        callback(error);
+                    }else{
+                        callback(null, user);
+                    }
+                });
+            },
+            function (user, callback) {
+                messageProvider.getMessages(db, user, (error, messages) => {
+                    if(error){
+                        callback(error);
+                    }else{
+                        callback(null, messages);
+                    }
+                });
+            }
+        ], function (error, result) {
+            if(error){
+                callback(error);
+            }else{
+                callback(null, result);
+            }
+        });
     }
 };
