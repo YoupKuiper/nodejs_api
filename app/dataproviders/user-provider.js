@@ -144,10 +144,10 @@ module.exports = {
                     if(user[0].consultant[0]){
                         callback(null, user[0]);
                     }else{
-                        callback('Consultant not found');
+                        callback('Consulent niet gevonden');
                     }
                 }else{
-                    callback("Unauthorized");
+                    callback("E-mail adres of wachtwoord onjuist");
                 }
             }
         })
@@ -182,10 +182,10 @@ module.exports = {
                     if(user[0].consultant[0]){
                         callback(null, user[0]);
                     }else{
-                        callback('Consultant not found');
+                        callback('Consulent niet gevonden');
                     }
                 }else{
-                    callback("Unauthorized");
+                    callback("Toegang geweigerd, log alstublieft opnieuw in.");
                 }
             }
         })
@@ -199,7 +199,7 @@ module.exports = {
                 if(user.value){
                     callback(null, user.value);
                 }else{
-                    callback("No user found with this email address");
+                    callback("Geen gebruiker gevonden met dit e-mail adres");
                 }
             }
         })
