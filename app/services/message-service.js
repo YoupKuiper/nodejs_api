@@ -45,6 +45,9 @@ module.exports = {
 
                 message.userId = user._id;
                 message.consultantId = user.consultant[0]._id;
+                let date = new Date();
+                date.setDate(date.getDate());
+                message.dateTime = date;
 
                 messageProvider.postMessage(db, message, (error, message) => {
                     if(error){
