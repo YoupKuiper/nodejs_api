@@ -11,7 +11,7 @@ module.exports = {
     },
 
     getMessages: function (db, user, callback) {
-        db.collection('messages').find({"userId": user._id}).toArray((error, results) => {
+        db.collection('messages').find({"userId": user._id}).sort({"dateTime": -1}).toArray((error, results) => {
             if(error){
                 callback(error);
             }else{
