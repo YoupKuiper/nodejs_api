@@ -42,7 +42,7 @@ module.exports = {
         userId = ObjectId(userId);
         let startDate = new Date();
         startDate.setDate(startDate.getDate() -31);
-        db.collection('measurements').find({ $and: [{"userId": userId}, {"measurementDateTime": {$gte: startDate}}]}).toArray(function (error, measurements) {
+        db.collection('measurements').find({ $and: [{"userId": userId}, {"measurementDateTime": {$gte: startDate}}]}).sort({"measurementDateTime": -1}).toArray(function (error, measurements) {
             if(error){
                 callback(error);
             }else{
