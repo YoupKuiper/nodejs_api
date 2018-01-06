@@ -19,15 +19,42 @@ module.exports = function (app, db) {
             res.status(400);
             res.send({"error":"No token supplied!"})
         }else{
-        userService.activateUser(db, req.query.token, (error, user) => {
+            userService.activateUser(db, req.query.token, (error, user) => {
+                if(error){
+                    res.status(400);
+                    res.send({error});
+                }else{
+                    res.send(user);
+                }
+            })
+        }
+    });
+
+    app.get('/Users/goToResetPassword', (req, res) => {
+        if(!req.query.token){
+            res.status(400);
+            res.send({"error": "No token supplied!"})
+        }else{
+            userService.redirectToResetPassword(db, req.query.token, (error, token) => {
+                if(error){
+                    res.status(400);
+                    res.send({error});
+                }else{
+                    res.redirect("zvh-app://resetpassword/"+ req.query.token);
+                }
+            })
+        }
+    });
+
+    app.put('/Users/resetPassword', (req, res) => {
+        userService.resetPassword(db, req.body, (error, token) => {
             if(error){
                 res.status(400);
                 res.send({error});
             }else{
-                res.send(user);
+                res.send(token);
             }
         })
-    }
     });
 
     app.post('/Users/login', (req,res) => {
@@ -39,7 +66,7 @@ module.exports = function (app, db) {
                 res.send(user);
             }
         })
-    })
+    });
 
     app.put('/Users', (req, res) => {
         userService.updateUser(db, req.body, req.headers, (error, user) => {
@@ -50,7 +77,7 @@ module.exports = function (app, db) {
                 res.send(user);
             }
         })
-    })
+    });
 
     app.post('/Users/forgotPassword', (req, res) => {
         userService.sendForgotPasswordEmail(db, req.query.emailAddress, (error, result) => {

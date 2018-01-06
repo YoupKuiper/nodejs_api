@@ -23,7 +23,7 @@ module.exports = {
                     }else{
                         callback(null, user);
                     }
-                })
+                });
             },
             function (user, callback) {
                 sendmail({
@@ -35,9 +35,54 @@ module.exports = {
                     console.log(err && err.stack);
                     if(reply){
                         console.dir(reply);
-                        callback(null, 'Bericht succesvol verzonden!');
+                        callback(null, user);
                     }else{
-                        callback('Error');
+                        callback('Bericht versturen mislukt.');
+                    }
+                });
+            },
+            function (user, callback) {
+
+                message.userId = user._id;
+                message.consultantId = user.consultant[0]._id;
+                let date = new Date();
+                date.setDate(date.getDate());
+                message.dateTime = date;
+
+                messageProvider.postMessage(db, message, (error, message) => {
+                    if(error){
+                        callback(error);
+                    }else{
+                        callback(null, message);
+                    }
+                });
+            }
+        ], function (error, result) {
+            if(error){
+                callback(error);
+            }else{
+                callback(null, result);
+            }
+        });
+    },
+
+    getMessages: function (db, headers, callback) {
+        async.waterfall([
+            function (callback) {
+                authorizationService.validateAuthtokenAndGetUserConsultant(db, headers, (error, user) => {
+                    if(error){
+                        callback(error);
+                    }else{
+                        callback(null, user);
+                    }
+                });
+            },
+            function (user, callback) {
+                messageProvider.getMessages(db, user, (error, messages) => {
+                    if(error){
+                        callback(error);
+                    }else{
+                        callback(null, messages);
                     }
                 });
             }

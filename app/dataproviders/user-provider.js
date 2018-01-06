@@ -9,6 +9,20 @@ module.exports = {
             }
         })
     },
+
+    getUserByAuthToken: function (db, token, callback) {
+        db.collection('users').findOne({"authToken": token}, (error, user) => {
+            if(error){
+                callback(error);
+            }else{
+                if(user){
+                    callback(null, user);
+                }else{
+                    callback(null, 'Gebruiker niet gevonden');
+                }
+            }
+        })
+    },
     
     activateUser: function (db, token, callback) {
         db.collection('users').findOneAndUpdate({"activationToken": token}, {$set: {"isActivated":true}}, {returnOriginal:false}, (error, result) => {
@@ -16,9 +30,87 @@ module.exports = {
                 callback(error);
             }else{
                 if(result.value){
-                    callback(null, 'Uw account is succesvol geactiveerd, u kunt nu inloggen in de applicatie')
+                    callback(null,
+                        '<head>\n' +
+                        '    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">\n' +
+                        '    <meta name="viewport" content="width=device-width,minimum-scale=1.0, maximum-scale=1.0" />\n' +
+                        '    <title>Site Name</title>\n' +
+                        '    <style>@media screen and (max-device-width:480px){body{-webkit-text-size-adjust:none}}</style>\n' +
+                        '     -->\n' +
+                        '    <script>\n' +
+                        '    window.onload = function() {\n' +
+                        '    <!-- Deep link URL for existing users with app already installed on their device -->\n' +
+                        '        window.location = "zvh-app://login";\n' +
+                        '    }\n' +
+                        '    </script>\n' +
+                        '</head>\n' +
+                        '<body>\n' +
+                        '<p>Uw account is geactiveerd, u kunt nu naar de app gaan om in te loggen.</p>\n' +
+                        '</body>'
+
+                    )
                 }else{
-                    callback('Gebruiker niet gevonden')
+                    callback('Gebruiker niet gevonden');
+                }
+            }
+        })
+    },
+
+    resetPassword: function (db, body, callback) {
+        db.collection('users').findOneAndUpdate({"resetPasswordToken": body.token}, {$set: {"password": body.password}}, (error, result) => {
+            if(error){
+                callback(error);
+            }else{
+                if(result.value){
+                    callback(null, result.value);
+                }else{
+                    callback('Gebruiker niet gevonden');
+                }
+            }
+        })
+    },
+
+    getUserByResetPasswordToken: function (db, token, callback) {
+        db.collection('users').findOne({"resetPasswordToken": token}, (error, result) => {
+            if(error){
+                callback(error);
+            }else{
+                if(result){
+                    callback(null,
+                        '<head>\n' +
+                        '    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">\n' +
+                        '    <meta name="viewport" content="width=device-width,minimum-scale=1.0, maximum-scale=1.0" />\n' +
+                        '    <title>Site Name</title>\n' +
+                        '    <style>@media screen and (max-device-width:480px){body{-webkit-text-size-adjust:none}}</style>\n' +
+                        '     -->\n' +
+                        '    <script>\n' +
+                        '    window.onload = function() {\n' +
+                        '    <!-- Deep link URL for existing users with app already installed on their device -->\n' +
+                        '        window.location = "zvh-app://login/";\n' +
+                        '    }\n' +
+                        '    </script>\n' +
+                        '</head>\n' +
+                        '<body>\n' +
+                        '<form method="post" action="">\n' +
+                        '\n' +
+                        '<label for="newPassword">New Password:</label> \n' +
+                        '<input type="password" id="newPassword" name="newPassword" title="New password" />\n' +
+                        '\n' +
+                        '<label for="confirmPassword">Confirm Password:</label> \n' +
+                        '<input type="password" id="confirmPassword" name="confirmPassword" title="Confirm new password" />\n' +
+                        '\n' +
+                        '<label for="token">Pasword Token:</label> \n' +
+                        '<input type="text" id="token" name="token" title="Password Token" />\n' +
+                        '\n' +
+                        '<p class="form-actions">\n' +
+                        '<input type="submit" value="Change Password" title="Change password" />\n' +
+                        '</p>\n' +
+                        '\n' +
+                        '</form>\n' +
+                        '</body>'
+                        )
+                }else{
+                    callback('Gebruiker niet gevonden');
                 }
             }
         })
@@ -54,11 +146,28 @@ module.exports = {
     },
 
     getUserByEmailAddress: function (db, credentials, callback) {
-        db.collection('users').findOne({"emailAddress": credentials.emailAddress}, (error, user) => {
+        db.collection('users').aggregate([
+            { $match: {"emailAddress": credentials.emailAddress} },
+            { $lookup: {
+                from: 'consultants',
+                localField: 'consultantId',
+                foreignField: '_id',
+                as: 'consultant'
+            }},
+            { $limit: 1 }
+        ], (error, user) => {
             if(error){
                 callback(error);
             }else{
-                callback(null, user);
+                if(user[0]){
+                    if(user[0].consultant[0]){
+                        callback(null, user[0]);
+                    }else{
+                        callback('Consulent niet gevonden');
+                    }
+                }else{
+                    callback("E-mail adres of wachtwoord onjuist");
+                }
             }
         })
     },
@@ -68,6 +177,7 @@ module.exports = {
             if(error){
                 callback(error);
             }else{
+                user.authToken = result.value.authToken;
                 callback(null, result.value);
             }
         })
@@ -91,10 +201,10 @@ module.exports = {
                     if(user[0].consultant[0]){
                         callback(null, user[0]);
                     }else{
-                        callback('Consultant not found');
+                        callback('Consulent niet gevonden');
                     }
                 }else{
-                    callback("Unauthorized");
+                    callback("Toegang geweigerd, log alstublieft opnieuw in.");
                 }
             }
         })
@@ -108,7 +218,7 @@ module.exports = {
                 if(user.value){
                     callback(null, user.value);
                 }else{
-                    callback("No user found with this email address");
+                    callback("Geen gebruiker gevonden met dit e-mail adres");
                 }
             }
         })

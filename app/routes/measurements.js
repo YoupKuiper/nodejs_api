@@ -23,4 +23,15 @@ module.exports = function (app, db) {
             }
         })
     });
+
+    app.put('/Measurements', (req, res) => {
+        measurementService.putMeasurement(db, req.body, req.headers, (error, result) => {
+            if(error){
+                res.status(400);
+                res.send({error});
+            }else{
+                res.send(result);
+            }
+        })
+    })
 };

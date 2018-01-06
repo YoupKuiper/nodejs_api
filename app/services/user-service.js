@@ -27,7 +27,7 @@ module.exports = {
                 from: process.env.EMAIL_ADDRESS, // sender address
                 to: user.emailAddress, // list of receivers
                 subject: 'Uw registratie bij zorg voor het hart applicatie', // Subject line
-                text: 'Ga naar deze URL om uw account te activeren: http://zvh-api.herokuapp.com/Users/activate?token=' + token // html body
+                text: 'Ga naar deze URL om uw account te activeren: https://zvh-api.herokuapp.com/Users/activate?token=' + token // html body
             };
 
             // send mail with defined transport object
@@ -80,6 +80,52 @@ module.exports = {
         })
     },
 
+    redirectToResetPassword: function (db, token, callback) {
+        userProvider.getUserByResetPasswordToken(db, token, (error, user) => {
+            if(error){
+                callback(error);
+            }else{
+                callback(null, user);
+            }
+        })
+    },
+
+    resetPassword: function (db, body, callback) {
+        async.waterfall([
+            function (callback) {
+                if(body.password && body.confirmedPassword && body.token){
+                    if(body.password === body.confirmedPassword){
+                        body.password = passwordHash.generate(body.password);
+                        callback(null)
+                    }else{
+                        callback('Wachtwoorden komen niet overeen');
+                    }
+                }else{
+                    callback('Password of token mist');
+                }
+            },
+            function (callback) {
+                userProvider.resetPassword(db, body, (error, user) => {
+                    if(error){
+                        callback(error);
+                    }else{
+                        if(user){
+                            callback(null, user)
+                        }
+                    }
+                })
+            }
+
+        ], function (error, result) {
+            if(error){
+                callback(error);
+            }else{
+                callback(null, result);
+            }
+        })
+
+    },
+
     updateUser: function (db, measurements, headers, callback) {
         async.waterfall([
             function (callback) {
@@ -114,7 +160,7 @@ module.exports = {
         async.waterfall([
             function (callback) {
                 if(isEmpty(credentials.emailAddress) || isEmpty(credentials.password)){
-                    callback("Email address or password missing");
+                    callback("E-mail adres of wachtwoord mist");
                 }else{
                     callback(null)
                 }
@@ -125,9 +171,10 @@ module.exports = {
                         callback(error);
                     }else{
                         if(user){
+                            user.consultant = user.consultant[0];
                             callback(null,user);
                         }else{
-                            callback("User not found");
+                            callback("Gebruiker niet gevonden");
                         }
                     }
                 })
@@ -136,17 +183,17 @@ module.exports = {
                     user.authToken = randtoken.generate(16);
                     callback(null, user);
                 }else{
-                    callback("User hasn't been activated yet. Please activate the account first by clicking the link in the email that has been sent to your email address.");
+                    callback("Gebruiker is nog niet geactiveerd, activeer alstublieft eerst uw account voordat u inlogt.");
                 }
             }, function (user, callback) {
                 if(passwordHash.verify(credentials.password, user.password)){
                     callback(null, user);
                 }else{
-                    callback("Wrong password");
+                    callback("Wachtwoord onjuist");
                 }
             },
             function (user, callback) {
-                userProvider.loginUser(db, user, (error, user) => {
+                userProvider.loginUser(db, user, (error, loggedInUser) => {
                     if(error){
                         callback(error);
                     }else{
@@ -178,19 +225,34 @@ module.exports = {
                 });
             },
             function (user, callback) {
-                //stuur de email met de link met de token in de email
-                sendmail({
-                    from: 'info@zorgvoorhethart.nl',
-                    to: emailAddress,
+
+                // create reusable transporter object using the default SMTP transport
+                let transporter = nodemailer.createTransport({
+                    service: 'gmail',
+                    auth: {
+                        user: process.env.EMAIL_ADDRESS,
+                        pass: process.env.EMAIL_PASSWORD
+                    }
+                });
+
+                // setup email data with unicode symbols
+                let mailOptions = {
+                    from: process.env.EMAIL_ADDRESS, // sender address
+                    to: emailAddress, // list of receivers
                     subject: 'Herstel uw wachtwoord',
-                    html: 'Klikt u op de volgende link om uw wachtwoord te herstellen: zvh-api.herokuapp://.com/Users/resetPassword?token=' + user.resetPasswordToken,
-                }, function(err, reply) {
-                    console.log(err && err.stack);
-                    if(reply){
-                        console.dir(reply);
-                        callback(null, user);
-                    }else{
-                        callback("Er was een probleem met het versturen van de email, controleer het email-adres alstublieft.")
+                    html: 'Klikt u op de volgende link om uw wachtwoord te herstellen: https://zvh-api.herokuapp.com/Users/goToResetPassword?token=' + user.resetPasswordToken,
+                };
+
+                // send mail with defined transport object
+                transporter.sendMail(mailOptions, (error, info) => {
+                    if (error) {
+                        callback("Email versturen mislukt")
+                    }else {
+                        console.log('Message sent: %s', info.messageId);
+                        // Preview only available when sending through an Ethereal account
+                        console.log('Preview URL: %s', nodemailer.getTestMessageUrl(info));
+
+                        callback(null, 'gelukt');
                     }
                 });
             }
