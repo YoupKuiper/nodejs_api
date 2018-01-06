@@ -25,13 +25,32 @@ module.exports = {
     },
     
     updateUser: function (db, userId, measurements, callback) {
-        db.collection('users').findOneAndUpdate({"_id": userId}, {$set: {"length": measurements.length, "weight": measurements.weight}}, {upsert: true}, (error, result) => {
-            if(error){
-                callback(error);
-            }else{
-                callback(null, result);
-            }
-        })
+        if(measurements.length && measurements.weight){
+            db.collection('users').findOneAndUpdate({"_id": userId}, {$set: {"length": measurements.length, "weight": measurements.weight}}, {upsert: true}, (error, result) => {
+                if(error){
+                    callback(error);
+                }else{
+                    callback(null, result);
+                }
+            })
+        }else if(measurements.length && !measurements.weight){
+            db.collection('users').findOneAndUpdate({"_id": userId}, {$set: {"length": measurements.length}}, {upsert: true}, (error, result) => {
+                if(error){
+                    callback(error);
+                }else{
+                    callback(null, result);
+                }
+            })
+        }else if(!measurements.length && measurements.weight){
+            db.collection('users').findOneAndUpdate({"_id": userId}, {$set: {"weight": measurements.weight}}, {upsert: true}, (error, result) => {
+                if(error){
+                    callback(error);
+                }else{
+                    callback(null, result);
+                }
+            })
+        }
+
     },
 
     getUserByEmailAddress: function (db, credentials, callback) {
