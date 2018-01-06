@@ -10,7 +10,7 @@ module.exports = {
 
         if (parseInt(measurement.bloodPressureUpper) > 139 || parseInt(measurement.bloodPressureLower)
             > 89) {
-            measurement.feedback = "Uw bloeddruk is iets hoger dan gemiddeld \nmaar u hoeft zich geen zorgen te maken";
+            measurement.feedback = "Uw bloeddruk is iets hoger dan gemiddeld, \nmaar u hoeft zich geen zorgen te maken";
         }else{
             measurement.feedback = "Uw bloeddruk is prima";
         }
