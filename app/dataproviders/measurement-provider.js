@@ -8,7 +8,7 @@ module.exports = {
         measurement.userId = userId;
         measurement.measurementDateTime = date;
 
-        if (parseInt(measurement.bloodPressureUpper) > 139 && parseInt(measurement.bloodPressureLower)
+        if (parseInt(measurement.bloodPressureUpper) > 139 || parseInt(measurement.bloodPressureLower)
             > 89) {
             measurement.feedback = "Uw bloeddruk is iets hoger dan gemiddeld, maar u hoeft zich geen zorgen te maken";
         }else{
