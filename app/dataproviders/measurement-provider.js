@@ -8,11 +8,16 @@ module.exports = {
         measurement.userId = userId;
         measurement.measurementDateTime = date;
 
-        if (parseInt(measurement.bloodPressureUpper) > 139 || parseInt(measurement.bloodPressureLower)
-            > 89) {
+        if (parseInt(measurement.bloodPressureUpper) >= 179 || parseInt(measurement.bloodPressureLower) >= 109) {
+            measurement.feedback = "Uw bloeddruk is erg hoog, neem contact op met uw consulent.";
+            measurement.result = 2;
+        }else if(parseInt(measurement.bloodPressureUpper) > 139 || parseInt(measurement.bloodPressureLower)
+            > 89){
             measurement.feedback = "Uw bloeddruk is iets hoger dan gemiddeld, \nmaar u hoeft zich geen zorgen te maken.";
+            measurement.result = 1;
         }else{
             measurement.feedback = "Uw bloeddruk is prima.";
+            measurement.result = 0
         }
         db.collection('measurements').insertOne(measurement, (error, result)=> {
             if(error){
@@ -27,6 +32,19 @@ module.exports = {
         measurement._id = ObjectId(measurement._id);
         measurement.userId = ObjectId(measurement.userId);
         measurement.comment = measurement.comment ? measurement.comment : "";
+
+        if (parseInt(measurement.bloodPressureUpper) >= 179 || parseInt(measurement.bloodPressureLower) >= 109) {
+            measurement.feedback = "Uw bloeddruk is erg hoog, neem contact op met uw consulent.";
+            measurement.result = 2;
+        }else if(parseInt(measurement.bloodPressureUpper) > 139 || parseInt(measurement.bloodPressureLower)
+            > 89){
+            measurement.feedback = "Uw bloeddruk is iets hoger dan gemiddeld, \nmaar u hoeft zich geen zorgen te maken.";
+            measurement.result = 1;
+        }else{
+            measurement.feedback = "Uw bloeddruk is prima.";
+            measurement.result = 0
+        }
+
         db.collection('measurements').findOneAndUpdate({"_id": measurement._id},
             {$set:
                 {
