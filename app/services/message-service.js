@@ -47,8 +47,12 @@ module.exports = {
                 message.consultantId = user.consultant[0]._id;
                 let date = new Date();
                 date.setDate(date.getDate());
-                message.dateTime = date;
+                message.dateTime = date.toISOString().replace(/T/, ' ').replace(/\..+/, '').slice(0, -3);
 
+                callback(null, message);
+
+            },
+            function (message, callback) {
                 messageProvider.postMessage(db, message, (error, message) => {
                     if(error){
                         callback(error);
