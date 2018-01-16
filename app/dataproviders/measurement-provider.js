@@ -52,7 +52,9 @@ module.exports = {
                     "bloodPressureLower": measurement.bloodPressureLower,
                     "healthIssueIds": measurement.healthIssueIds,
                     "healthIssueOther": measurement.healthIssueOther,
-                    "comment": measurement.comment
+                    "comment": measurement.comment,
+                    "feedback": measurement.feedback,
+                    "result": measurement.result
                 }}, (error, result)=> {
             if(error){
                 callback(error);
