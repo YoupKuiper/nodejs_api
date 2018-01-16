@@ -8,7 +8,7 @@ module.exports = {
         measurement.userId = userId;
         measurement.measurementDateTime = date;
 
-        if (parseInt(measurement.bloodPressureUpper) >= 179 || parseInt(measurement.bloodPressureLower) >= 109) {
+        if (parseInt(measurement.bloodPressureUpper) >= 159 || parseInt(measurement.bloodPressureLower) >= 109) {
             measurement.feedback = "Uw bloeddruk is erg hoog, neem contact op met uw consulent.";
             measurement.result = 2;
         }else if(parseInt(measurement.bloodPressureUpper) > 139 || parseInt(measurement.bloodPressureLower)
@@ -33,7 +33,7 @@ module.exports = {
         measurement.userId = ObjectId(measurement.userId);
         measurement.comment = measurement.comment ? measurement.comment : "";
 
-        if (parseInt(measurement.bloodPressureUpper) >= 179 || parseInt(measurement.bloodPressureLower) >= 109) {
+        if (parseInt(measurement.bloodPressureUpper) >= 159 || parseInt(measurement.bloodPressureLower) >= 109) {
             measurement.feedback = "Uw bloeddruk is erg hoog, neem contact op met uw consulent.";
             measurement.result = 2;
         }else if(parseInt(measurement.bloodPressureUpper) > 139 || parseInt(measurement.bloodPressureLower)
