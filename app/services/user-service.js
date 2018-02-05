@@ -33,6 +33,7 @@ module.exports = {
             // send mail with defined transport object
             transporter.sendMail(mailOptions, (error, info) => {
                     if (error) {
+                        console.log(error);
                         callback("Email versturen mislukt")
                     }else {
                     console.log('Message sent: %s', info.messageId);
